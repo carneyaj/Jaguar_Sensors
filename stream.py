@@ -21,7 +21,7 @@ import mysql.connector
 from datetime import datetime
 import re, subprocess
 
-from mysql_credentials import jaguar_credentials
+from /home/pi/credentials/mysql_credentials import jaguar_credentials
 
 
 
