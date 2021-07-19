@@ -20,7 +20,7 @@ i2c = busio.I2C(board.SCL, board.SDA, frequency=10000)
 # Connect to a PM2.5 sensor over I2C
 pm25 = PM25_I2C(i2c, reset_pin)
 bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c, debug=False)
-bme_temperature_offset = -0.5
+bme_temperature_offset = -1.0
 
 scd = adafruit_scd30.SCD30(i2c)
 scd.measurement_interval = 2
