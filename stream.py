@@ -94,7 +94,7 @@ try:
 		db_connection = jaguar_credentials()
 		my_database = db_connection.cursor()
 		SQLquery = """INSERT INTO Environment (PM1std, PM25std, PM10std, PM1env, PM25env, PM10env, 3um, 5um, 10um, 25um, 50um, 100um, CO2, CO2Temp, CO2RH, 680Temp, 680VOC, 680RH, 680Pr, ACI, BI, AEI, ADI, NewACI, NewBI, NewAEI, NewADI) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) """
-		insert_tuple = (float(av[0]), float(av[1]), float(av[2]), float(av[3]), float(av[4]), float(av[5]), float(av[6]), float(av[7]), float(av[8]), float(av[9]), float(av[10]), float(av[11]), float(av[12]), float(av[13]), float(av[14]), float(av[15]), float(av[16]), float(av[17]), float(av[18]), float(ind[0]), float(ind[1]), float(ind[2]), float(ind[3]), float(ind[4]), float(ind[5]), float(ind[6]), float(ind[7]))
+		insert_tuple = (float(env_data.piecewise_convert(av[0],env_data.aqi25)), float(env_data.piecewise_convert(av[1],env_data.aqi10)), float(av[2]), float(av[3]), float(av[4]), float(av[5]), float(av[6]), float(av[7]), float(av[8]), float(av[9]), float(av[10]), float(av[11]), float(av[12]), float(av[13]), float(av[14]), float(av[15]), float(av[16]), float(av[17]), float(av[18]), float(ind[0]), float(ind[1]), float(ind[2]), float(ind[3]), float(ind[4]), float(ind[5]), float(ind[6]), float(ind[7]))
 		my_database.execute(SQLquery, insert_tuple)
 		print("ready...")
 		db_connection.commit()
