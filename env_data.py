@@ -46,6 +46,16 @@ def env_av(total,sec):
 	return np.average(values, axis = 0)
 
 
+aqi25 = [0,12,35.5,55.5,150.5,250.5,500.5,10000]
+aqi10 = [0,55,155,255,355,425,605,10000]
+breakpoints = [0, 50, 100, 150, 200, 300, 500, 10000]
+
+def piecewise_convert(conc,values):
+	aqi=0
+	for i in range(0,len(values)):
+		if conc >= values[i] and conc < values[i+1]:
+			aqi = breakpoints[i] + (conc - values[i])/(values[i+1] - values[i]) * (breakpoints[i+1] - breakpoints[i])
+	return aqi
 
 
 
