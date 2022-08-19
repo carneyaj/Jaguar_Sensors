@@ -1,4 +1,4 @@
 */5 * * * * pi python3 /home/pi/Jaguar_Sensors/stream.py > /home/pi/data/stream_log.log 2>&1
-2 2 * * * pi /home/pi/rclone_copy.sh > /home/pi/update.log
+3 2 * * * pi /home/pi/rclone_copy.sh > /home/pi/update.log
 58 23 * * * root /home/weewx/bin/wunderfixer --api-key=f9127dee3bf94c3d927dee3bf9dc3d91 > /home/pi/data/wunderfixer.log 2>&1
 0 2 * * * /sbin/shutdown -r now
